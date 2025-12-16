@@ -56,7 +56,7 @@ const syncUserUpdation = inngest.createFunction(
 
 const syncWorkspaceCreation = inngest.createFunction(
   { id: "sync-workspace-from-clerk" },
-  { event: "clerk/organization. created" },
+  { event: "clerk/organization.created" },
   async ({ event }) => {
     const { data } = event;
     await prisma.workspace.create({
@@ -84,7 +84,7 @@ const syncWorkspaceCreation = inngest.createFunction(
 
 const syncWorkspaceUpdation = inngest.createFunction(
   { id: "update-workspace-from-clerk" },
-  { event: "clerk/organization. updated" },
+  { event: "clerk/organization.updated" },
   async ({ event }) => {
     const { data } = event;
     await prisma.workspace.update({
@@ -119,7 +119,7 @@ const syncWorkspaceDeletion = inngest.createFunction(
 
 const syncWorkspaceMemberCreation = inngest.createFunction(
   { id: "sync-workspace-member-from-clerk" },
-  { event: "clerk/organizationInvitation. accepted" },
+  { event: "clerk/organizationInvitation.accepted" },
   async ({ event }) => {
     const { data } = event;
     await prisma.workspaceMember.create({
@@ -130,9 +130,9 @@ const syncWorkspaceMemberCreation = inngest.createFunction(
       },
     });
 
-    I;
+    
   }
 );
 
 // Create an empty array where we'll export future Inngest functions
-export const functions = [syncUserCreation, syncUserDeletion, syncUserUpdation,syncUserDeletion,syncWorkspaceCreation,syncWorkspaceUpdation,syncWorkspaceDeletion,syncWorkspaceMemberCreation];
+export const functions = [syncUserCreation, syncUserDeletion, syncUserUpdation,syncWorkspaceCreation,syncWorkspaceUpdation,syncWorkspaceDeletion,syncWorkspaceMemberCreation];
