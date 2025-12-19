@@ -29,6 +29,7 @@ export const addComment = async (req, res) => {
             data: { taskId, content, userId },
             include: { user: true }
         });
+        res.status(201).json({ comment });
 
     } catch (error) {
         console.log(error);
