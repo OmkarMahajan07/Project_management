@@ -110,7 +110,7 @@ export const deleteTask = async (req, res) => {
         }
 
         const project = await prisma.project.findUnique({
-            where: { id: tasks[0].projectId },
+            where: { id: task[0].projectId },
             include: { members: { include: { user: true } } }
         });
 
